@@ -7,3 +7,4 @@ a.*
 b.*
 c.*
 test*
+.DS_Store
