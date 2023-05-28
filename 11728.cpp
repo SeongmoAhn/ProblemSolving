@@ -10,7 +10,7 @@ int main(void)
     ios_base::sync_with_stdio(false);
     int input;
     int n, m, i;
-    vector<int> v1, v2;
+    vector<int> v1;
 
     cin >> n >> m;
     for (i = 0; i < n; i++) {
@@ -19,10 +19,7 @@ int main(void)
     }
     for (i = 0; i < m; i++) {
         cin >> input;
-        v2.push_back(input);
-    }
-    for (i = 0; i < m; i++) {
-        v1.push_back(v2[i]);
+        v1.push_back(input);
     }
 
     sort(v1.begin(), v1.end());
