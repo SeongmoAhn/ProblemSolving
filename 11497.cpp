@@ -20,16 +20,20 @@ int main(void)
             cin >> input;
             v.push_back(input);
         }
+        // 입력받은 배열을 오름차순으로 정렬
         sort(v.begin(), v.end());
 
+        // 짝수 인덱스는 오름차순으로 새로운 배열에 넣음
         for (int i = 0; i < m; i += 2) {
             result.push_back(v[i]); 
         }
+        // 홀수 인덱스는 내림차순으로 새로운 배열에 넣음
         for (int i = m - 1; i > 0; i--) {
             if (i % 2 == 1)
                 result.push_back(v[i]);
         }
 
+        // 새로운 배열에서 맞닿은 두 통나무의 높이 차가 최대인 것은 저장
         for (int i = 0; i < m - 1; i++) {
             level = max(level, abs(result[i] - result[i + 1]));
         }
