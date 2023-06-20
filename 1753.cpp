@@ -12,19 +12,18 @@ vector<pair<int, int>> graph[SIZE];
 int distTable[SIZE];
 priority_queue<pair<int, int>> pq;
 
-void dijkstra() {
-    pq.push({0, start});
+void shortPath() {
+    fill(distTable, distTable + SIZE, INF);
     distTable[start] = 0;
+    pq.push({0, start});
 
     while (!pq.empty()) {
-        int dist = -pq.top().first;
+        int curDist = -pq.top().first;
         int curNode = pq.top().second;
         pq.pop();
 
-        if (distTable[curNode] < dist) continue;
-
         for (int i = 0; i < graph[curNode].size(); i++) {
-            int cost = dist + graph[curNode][i].second;
+            int cost = distTable[curNode] + graph[curNode][i].second;
 
             if (cost < distTable[graph[curNode][i].first]) {
                 distTable[graph[curNode][i].first] = cost;
@@ -32,29 +31,24 @@ void dijkstra() {
             }
         }
     }
+
 }
 
-int main(void)
-{
-    PS_INPUT; 
+int main() {
+    PS_INPUT;
     cin >> n >> m >> start;
-
     for (int i = 0; i < m; i++) {
         int v1, v2, e;
         cin >> v1 >> v2 >> e;
         graph[v1].push_back({v2, e});
     }
 
-    fill(distTable, distTable + SIZE, INF);
-
-    dijkstra();
+    shortPath();
 
     for (int i = 1; i <= n; i++) {
-        if (distTable[i] == INF)
-            cout << "INF" << endl;
-
+        if (distTable[i] == INF) cout << "INF" << endl;
         else cout << distTable[i] << endl;
     }
-
+    
     return 0;
 }
