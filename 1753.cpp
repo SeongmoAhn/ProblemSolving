@@ -18,17 +18,17 @@ void dijkstra() {
 
     while (!pq.empty()) {
         int dist = -pq.top().first;
-        int cur = pq.top().second;
+        int curNode = pq.top().second;
         pq.pop();
 
-        if (distTable[cur] < dist) continue;
+        if (distTable[curNode] < dist) continue;
 
-        for (int i = 0; i < graph[cur].size(); i++) {
-            int cost = dist + graph[cur][i].second;
+        for (int i = 0; i < graph[curNode].size(); i++) {
+            int cost = dist + graph[curNode][i].second;
 
-            if (cost < distTable[graph[cur][i].first]) {
-                distTable[graph[cur][i].first] = cost;
-                pq.push({-cost, graph[cur][i].first});
+            if (cost < distTable[graph[curNode][i].first]) {
+                distTable[graph[curNode][i].first] = cost;
+                pq.push({-cost, graph[curNode][i].first});
             }
         }
     }
