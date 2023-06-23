@@ -7,4 +7,5 @@ a.*
 b.*
 c.*
 test*
+input
 .DS_Store
