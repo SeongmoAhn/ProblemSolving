@@ -14,7 +14,7 @@ int V, E;
 bool visited[SIZE];
 ll ans;
 vector<pii> graph[SIZE];
-priority_queue<pii, vector<pii>, greater<pii>> pq;
+priority_queue<pii> pq;
 
 void initInput() {
     cin >> V >> E;
@@ -31,7 +31,7 @@ void prim() {
     pq.push({0, 1});
 
     while (!pq.empty()) {
-        int curWeight = pq.top().first;
+        int curWeight = -pq.top().first;
         int curNode = pq.top().second;
         pq.pop();
 
@@ -44,7 +44,7 @@ void prim() {
             int nextNode = graph[curNode][i].first;
             int nextWeight = graph[curNode][i].second;
 
-            pq.push({nextWeight, nextNode});
+            pq.push({-nextWeight, nextNode});
         }
     }
 }
