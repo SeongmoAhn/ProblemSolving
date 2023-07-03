@@ -30,8 +30,8 @@ matrix matrixPower(matrix A, ll size) {
         return ret;
     }
     else if (size & 1) {
-        matrix temp = matrixPower(A, size - 1);
-        return A * temp;
+        matrix temp = matrixPower(A, (size - 1) / 2);
+        return A * temp * temp;
     }
     else {
         matrix temp = matrixPower(A, size / 2);
