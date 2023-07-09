@@ -8,4 +8,5 @@ b.*
 c.*
 test*
 input
+easy.cpp
 .DS_Store
