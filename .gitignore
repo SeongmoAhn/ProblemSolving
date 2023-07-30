@@ -7,6 +7,6 @@ a.*
 b.*
 c.*
 test*
-input
+input*
 easy.cpp
 .DS_Store
