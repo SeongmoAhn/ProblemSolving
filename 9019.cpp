@@ -5,33 +5,33 @@ using namespace std;
 #define endl '\n'
 #define SIZE 10000
 
-int A, B, nextNum;
+int A, B, nx;
 queue<pair<int, string>> q;
 bool visited[SIZE];
 
 char D(void) {
-    int nx = nextNum * 2;
-    if (nx > 9999) nx %= 10000;
-    nextNum = nx;
+    int temp = nx * 2;
+    if (temp > 9999) temp %= 10000;
+    nx = temp;
     return 'D';
 }
 
 char S(void) {
-    int nx = nextNum - 1;
-    if (nx < 0) nx = 9999;
-    nextNum = nx;
+    int temp = nx - 1;
+    if (temp < 0) temp = 9999;
+    nx = temp;
     return 'S';
 }
 
 char L(void) {
-    int nx = (nextNum % 1000) * 10 + (nextNum / 1000);
-    nextNum = nx;
+    int temp = (nx % 1000) * 10 + (nx / 1000);
+    nx = temp;
     return 'L';
 }
 
 char R(void) {
-    int nx = (nextNum % 10) * 1000 + (nextNum / 10);
-    nextNum = nx;
+    int temp = (nx % 10) * 1000 + (nx / 10);
+    nx = temp;
     return 'R';
 }
 
@@ -54,14 +54,14 @@ void solve() {
         }
 
         for (int i = 0; i < 4; i++) {
-            nextNum = num;
+            nx = num;
             str += func[i]();
-            if (visited[nextNum]) {
+            if (visited[nx]) {
                 str.pop_back();
                 continue;
             }
-            visited[nextNum] = 1;
-            q.push({nextNum, str});
+            visited[nx] = 1;
+            q.push({nx, str});
             str.pop_back();
         }
     }
@@ -69,7 +69,7 @@ void solve() {
 
 int main(void) {
     cout.tie(NULL); cin.tie(NULL); ios_base::sync_with_stdio(false);
-    // freopen("input.txt", "r", stdin);
+    freopen("input.txt", "r", stdin);
     int T; cin >> T;
     while (T--) {
         solve();
