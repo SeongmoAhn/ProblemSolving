@@ -1,49 +1,15 @@
-#include <iostream>
-#include <vector>
-#include <string>
-using namespace std;
-
-vector<bool> v(21);
-int n, x;
-string input;
-
-int main(void)
-{
-    cout.tie(NULL); cin.tie(NULL); ios_base::sync_with_stdio(false);
-    cin >> n;
-    for (int i = 0; i < n; i++) {
-        cin >> input;
-
-        if (input == "add") {
-            cin >> x;
-            v[x] = 1;
-        }
-        else if (input == "remove") {
-            cin >> x;
-            v[x] = 0;
-        }
-        else if (input == "check") {
-            cin >> x;
-            cout << v[x] << '\n';
-        }
-        else if (input == "toggle") {
-            cin >> x;
-            if (v[x])
-                v[x] = 0;
-            else
-                v[x] = 1;
-        }
-        else if (input == "all") {
-            for (int i = 1; i < 21; i++) {
-                v[i] = 1;
-            }
-        }
-        else {
-            for (int i = 1; i < 21; i++) {
-                v[i] = 0;
-            }
-        }
+#include <stdio.h>
+int T, x, S;
+int main() {
+    scanf("%d", &T);
+    char cmd[9];
+    while (T--) {
+        scanf("%s %d", cmd, &x);
+        if (cmd[0] == 'a' && cmd[1] == 'd') S |= (1 << x);
+        else if (cmd[0] == 'r') S &= ~(1 << x);
+        else if (cmd[0] == 'c') printf("%d\n", (S & (1 << x) ? 1 : 0));
+        else if (cmd[0] == 't') S ^= (1 << x);
+        else if (cmd[0] == 'e') S = 0;
+        else S = (1 << 21) - 1;
     }
-
-    return 0;
 }
