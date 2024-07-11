@@ -4,7 +4,7 @@
 using namespace std;
 #define endl '\n'
 #define SIZE 100001
-#define INF 1e9
+#define INF 2100000000
 #define pii pair<int, int>
 
 int N, T, height;
