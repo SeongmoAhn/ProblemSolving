@@ -5,17 +5,19 @@ using namespace std;
 #define endl '\n'
 #define SIZE 
 
-void initInput() {
+void init_input()
+{
 }
 
-void solve() {
+void solve()
+{
 }
 
 int main(void)
 {
     cout.tie(NULL); cin.tie(NULL); ios_base::sync_with_stdio(false);
-    freopen("input", "r", stdin);
-    initInput();
+    freopen("input.txt", "r", stdin);
+    init_input();
     solve();
 
     return 0;
