@@ -1,6 +1,6 @@
 CC = g++
 TARGET = prog
-NUMBER = 1268.cpp
+NUMBER = 20365.cpp
 OPTION = -std=c++17 -o
 
 $(TARGET) : $(NUMBER)
@@ -12,6 +12,12 @@ bj : $(TARGET)
 
 cp :
 	cp form $(NUMBER)
+	code $(NUMBER)
+
+git :
+	git add $(NUMBER)
+	git commit -m "baekjoon $(NUMBER)"
+	git push
 
 clean : 
 	rm $(TARGET)
