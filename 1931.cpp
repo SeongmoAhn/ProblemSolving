@@ -2,35 +2,46 @@
 #include <algorithm>
 #include <vector>
 using namespace std;
+#define endl '\n'
+#define pii pair<int, int>
 
-bool compare(pair<int, int> p1, pair<int, int> p2) {
-    if (p1.second == p2.second) {
-        return p1.first < p2.first;
+bool compare(pii a, pii b)
+{
+    if (a.second == b.second)
+        return a.first > b.first;
+    return a.second > b.second;
+}
+
+int solve()
+{
+    int N; cin >> N;
+    vector<pii> v;
+    int a, b;
+    for (int i = 0; i < N; i++) {
+        cin >> a >> b;
+        v.push_back(make_pair(b, a));
     }
-    return p1.second < p2.second;
+
+    sort(v.begin(), v.end(), compare);
+
+    int ans = 0;
+    int last = v[0].first;
+    for (auto cur : v) {
+        cout << cur.first << ", " << cur.second << endl;
+        if (cur.first <= last) {
+            ans++;
+            last = cur.second;
+        }
+    }
+
+    return ans;
 }
 
 int main(void)
 {
     cout.tie(NULL); cin.tie(NULL); ios_base::sync_with_stdio(false);
-	int n, begin, end, i;
-	vector<pair<int, int>> v;
-	cin >> n ;
-	for (i = 0; i < n; i++) {
-		cin >> begin >> end;
-		v.push_back({begin, end});
-	}
-	sort(v.begin(), v.end(), compare);
-	
-	int endTime = v[0].second;
-	int count = 1;
-	for (i = 1; i < n; i++) {
-		if (endTime <= v[i].first ) {
-			count++;
-			endTime = v[i].second;
-		}
-	}
+    // freopen("input.txt", "r", stdin);
+    cout << solve() << endl;
 
-	cout << count << '\n';
     return 0;
 }
