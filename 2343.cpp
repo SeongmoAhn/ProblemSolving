@@ -1,5 +1,4 @@
 #include <iostream>
-#include <algorithm>
 #include <vector>
 using namespace std;
 #define endl '\n'
@@ -19,45 +18,42 @@ void init_input()
 
 int solve()
 {
-    int low = v[N - 1], mid;
-    int temp_sum, cnt, ans = 10e9;
+    int low = 1, mid;
+    int ans = 2e9;
+
     while (low <= high) {
         mid = (low + high) / 2;
 
-        temp_sum = cnt = 0;
+        int cnt = 1, temp_sum = 0;
         for (int n : v) {
-            int tmp = temp_sum + n;
-            if (tmp > mid) {
-                cout << "1: " << temp_sum << endl;
+            if (mid < n) {
+                cnt = M + 1;
+                break;
+            }
+
+            if (temp_sum + n <= mid) {
+                temp_sum += n;
+            } else {
                 temp_sum = n;
                 cnt++;
-            } else if (tmp == mid) {
-                cout << "2: " << temp_sum << endl;
-                temp_sum = 0;
-                cnt++;
-            } else {
-                cout << "3: " << temp_sum << endl;
-                temp_sum += n;
             }
         }
-        
-        printf("low: %d, mid: %d, high: %d, cnt: %d\n", low, mid, high, cnt);
 
-        if (cnt >= M) {
-            low = mid + 1;
-        } else if (cnt < M) {
+        if (cnt <= M) {
+            ans = min(ans, mid);
             high = mid - 1;
         } else {
+            low = mid + 1;
         }
     }
 
-    return mid;
+    return ans;
 }
 
 int main(void)
 {
     cout.tie(NULL); cin.tie(NULL); ios_base::sync_with_stdio(false);
-    freopen("input.txt", "r", stdin);
+    // freopen("input.txt", "r", stdin);
     init_input();
     cout << solve() << endl;
 
