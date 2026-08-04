@@ -2,7 +2,7 @@ CC = g++
 TARGET = prog
 # PLATFORM: boj | mincoding
 PLATFORM = mincoding
-NUMBER = 15392.cpp
+NUMBER = 9990.cpp
 OPTION = -std=c++17 -o
 SRC = $(PLATFORM)/$(NUMBER)
 
@@ -10,7 +10,7 @@ $(TARGET) : $(SRC)
 	$(CC) $(OPTION) $(TARGET) $(SRC)
 	./$(TARGET)
 
-bj : $(TARGET)
+run : $(TARGET)
 	./$(TARGET)
 
 cp :
