@@ -1,22 +1,25 @@
 CC = g++
 TARGET = prog
-NUMBER = b.cpp
+# PLATFORM: boj | mincoding
+PLATFORM = mincoding
+NUMBER = 15392.cpp
 OPTION = -std=c++17 -o
+SRC = $(PLATFORM)/$(NUMBER)
 
-$(TARGET) : $(NUMBER)
-	$(CC) $(OPTION) $(TARGET) $(NUMBER)
+$(TARGET) : $(SRC)
+	$(CC) $(OPTION) $(TARGET) $(SRC)
 	./$(TARGET)
 
 bj : $(TARGET)
 	./$(TARGET)
 
 cp :
-	cp form $(NUMBER)
-	code $(NUMBER)
+	cp form $(SRC)
+	code $(SRC)
 
 git :
-	git add $(NUMBER)
-	git commit -m "baekjoon $(NUMBER)"
+	git add $(SRC)
+	git commit -m "$(PLATFORM) $(NUMBER)"
 	git push
 
 clean : 
