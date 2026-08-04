@@ -1,7 +1,6 @@
 CC = g++
 TARGET = prog
 NUMBER = b.cpp
-JNUMBER = b.java
 OPTION = -std=c++17 -o
 
 $(TARGET) : $(NUMBER)
@@ -10,9 +9,6 @@ $(TARGET) : $(NUMBER)
 
 bj : $(TARGET)
 	./$(TARGET)
-
-java : $(JNUMBER)
-	java $(JNUMBER)
 
 cp :
 	cp form $(NUMBER)
