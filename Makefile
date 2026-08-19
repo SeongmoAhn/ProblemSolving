@@ -1,10 +1,11 @@
 CC = g++
 TARGET = prog
-# PLATFORM: boj | mincoding
+# PLATFORM: boj | mincoding | programmers
 PLATFORM = mincoding
-NUMBER = 9990.cpp
+NUMBER = 1610.cpp
 OPTION = -std=c++17 -o
 SRC = $(PLATFORM)/$(NUMBER)
+FORM = form.$(PLATFORM)
 
 $(TARGET) : $(SRC)
 	$(CC) $(OPTION) $(TARGET) $(SRC)
@@ -14,7 +15,7 @@ run : $(TARGET)
 	./$(TARGET)
 
 cp :
-	cp form $(SRC)
+	cp $(FORM) $(SRC)
 	code $(SRC)
 
 git :
