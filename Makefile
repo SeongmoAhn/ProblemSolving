@@ -1,10 +1,11 @@
 CC = g++
 TARGET = prog
-# PLATFORM: boj | mincoding | programmers
+# PLATFORM: boj | mincoding | programmers | jungol
 # PLATFORM = boj
 PLATFORM = mincoding
 # PLATFORM = programmers
-NUMBER = 214.cpp
+# PLATFORM = jungol
+NUMBER = 5601.cpp
 OPTION = -std=c++17 -o
 SRC = $(PLATFORM)/$(NUMBER)
 FORM = form.$(PLATFORM)
