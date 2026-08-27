@@ -12,8 +12,9 @@ int solution(int n) {
     long long dp[SIZE] = {1, 0, 3};
     long long sum[SIZE] = {1, 0, 4};
     for (int i = 4; i < SIZE; i += 2) {
-        dp[i] = (dp[i - 2] * 3 + sum[i - 4] * 2) % MOD;
-        sum[i] = (sum[i - 2] + dp[i]) % MOD;
+        // dp[i] = (dp[i - 2] * 3 + sum[i - 4] * 2) % MOD;
+        // sum[i] = (sum[i - 2] + dp[i]) % MOD;
+        dp[i] = ((dp[i - 2] * 4) % MOD - dp[i - 4] + MOD) % MOD;
     }
 
     return (int)dp[n];
