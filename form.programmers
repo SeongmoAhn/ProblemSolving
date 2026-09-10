@@ -5,11 +5,7 @@
 using namespace std;
 
 int solution() {
-    int answer = 0;
-    return answer;
 }
 
 int main(void) {
-
-    return 0;
 }
